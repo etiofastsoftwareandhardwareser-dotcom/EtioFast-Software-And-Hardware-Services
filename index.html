@@ -39,29 +39,19 @@
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      background:
-  linear-gradient(
-    to bottom,
-    rgba(10, 15, 28, 0.25) 0%,
-    rgba(10, 15, 28, 0.85) 32%,
-    rgba(10, 15, 28, 0.98) 100%
-  ),
-  url("background.png") center top / 100% 35% no-repeat;
-      background: linear-gradient(rgba(10, 15, 28, 0.78), rgba(10, 15, 28, 0.88)), url("background.png") center top / cover no-repeat fixed;
-    .card {
-  margin-top: 28vh; /* ሳጥኑን ወደ ታች ዝቅ ያደርጋል (በፈለጉት መጠን ይቀይሩት) */
-  width: 92%;
-  max-width: 520px; /* በስልክ ላይ ንጹህ እንዲሆን */
-}
-
-/* ስክሪኑ ሰፊ ሲሆን (ለምሳሌ ዴስክቶፕ / ታብሌት) */
-@media (min-width: 768px) {
-  .card {
-    max-width: 650px; /* ወደ ጎን ስፋት ይጨምራል */
-    margin-top: 22vh;
-  }
-}
-
+      padding: 20px 14px;
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(10, 15, 28, 0.45) 0%,
+          rgba(10, 15, 28, 0.88) 38%,
+          rgba(10, 15, 28, 0.98) 100%
+        ),
+        url("background.png");
+      background-position: center top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
 
     .container {
@@ -132,7 +122,8 @@
 
     input[type="email"],
     input[type="text"],
-    input[type="tel"] {
+    input[type="tel"],
+    textarea {
       width: 100%;
       padding: 13px 16px;
       border-radius: 10px;
@@ -145,7 +136,13 @@
       transition: border-color 0.2s;
     }
 
-    input:focus {
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
       border-color: var(--primary);
     }
 
@@ -262,7 +259,6 @@
       color: #c4b5fd;
     }
 
-    /* ድርጅቱን መቀላቀል የሚያስችል የታችኛው ክፍል */
     .join-section-footer {
       margin-top: clamp(24px, 3vw, 36px);
       padding: clamp(20px, 3vw, 30px);
@@ -328,7 +324,6 @@
       color: #d8b4fe;
     }
 
-    /* ሎኬሽን መምረጫ በተን */
     .location-wrapper {
       margin-bottom: 20px;
     }
@@ -373,7 +368,6 @@
       margin-top: 10px;
     }
 
-    /* የክፍያ ማሳሰቢያ እና የስልክ መረጃ ሳጥን */
     .payment-contact-box {
       margin-top: 22px;
       padding: 16px;
@@ -411,7 +405,6 @@
       text-decoration: underline;
     }
 
-    /* ሙሉ ስክሪን ካርታ (Map Modal) */
     .map-modal {
       position: fixed;
       inset: 0;
@@ -490,7 +483,6 @@
       border: 1px solid #ef4444;
     }
 
-    /* ዴስክቶፕ እና ላፕቶፕ ማስተካከያ (≥ 992px) */
     @media (min-width: 992px) {
       .container {
         max-width: 1240px;
@@ -505,7 +497,6 @@
       }
     }
 
-    /* ታላላቅ ስክሪኖች እና ቲቪ ማስተካከያ (≥ 1440px) */
     @media (min-width: 1440px) {
       .container {
         max-width: 1440px;
@@ -619,12 +610,12 @@
     <section id="step-join-tracks" class="hidden">
       <div class="user-badge">
         <span>ገብተዋል በ፦ <strong id="join-display-email"></strong></span>
-        <span style="font-size: 0.85rem; color: #c4b5fd;">● የባለሙያ ማመልከቻ</span>
+        <span style="font-size: 0.85rem; color: #c4b5fd;">● የባለሙያ / ተቀጣሪ ማመልከቻ</span>
       </div>
 
-      <h2 class="section-heading">የሚችሉትን የሙያ ዘርፍ ይምረጡ፦</h2>
+      <h2 class="section-heading">ለመቀላቀል ወይም ለመቀጠር የሚፈልጉትን የሙያ ዘርፍ ይምረጡ፦</h2>
       <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 20px;">
-        ከሚከተሉት ስድስት ዘርፎች እውቀት ወይም ልምድ ያለዎትን አንዱን ይምረጡና መረጃዎን ይላኩ።
+        ከሚከተሉት ስድስት ዘርፎች እውቀት ወይም ልምድ ያለዎትን አንዱን ይምረጡና የስራ ማመልከቻዎን ይላኩ።
       </p>
 
       <div class="services-grid">
@@ -695,10 +686,10 @@
         <strong id="chosen-service-title"></strong>
       </div>
 
-      <form id="order-form" action="https://formspree.io/f/xbgopypg" method="POST">
-        <input type="hidden" name="የመልዕክቱ_አይነት" id="submission-type" value="የአገልግሎት ትዕዛዝ (Customer Order)" />
+      <form id="order-form" action="https://formspree.io/f/mvkavvew" method="POST">
+        <input type="hidden" name="የመልዕክቱ_አይነት" id="submission-type" value="ከደንበኛ ክፍል የተላከ የአገልግሎት ትዕዛዝ (Customer Order)" />
         <input type="hidden" name="_subject" id="email-subject" />
-        <input type="hidden" name="የመጣበት_የአገልግሎት_ወይም_የሙያ_ክፍል" id="service-department" />
+        <input type="hidden" name="የተላከበት_ክፍል_እና_አላማ" id="service-department" />
         <input type="hidden" name="email" id="hidden-client-email" />
         <input type="hidden" name="የደንበኛው_Google_Maps_ሊንክ" id="google-maps-link" />
         <input type="hidden" name="ትክክለኛ_ኮኦርዲኔት_Coordinates" id="exact-coordinates" />
@@ -708,6 +699,9 @@
 
         <label for="phone-number">ስልክ ቁጥር (Phone Number)</label>
         <input type="tel" id="phone-number" name="ስልክ_ቁጥር" placeholder="09..." required />
+
+        <label for="user-message">መልዕክት / ማብራሪያ (Message)</label>
+        <textarea id="user-message" name="message" placeholder="የሚፈልጉትን አገልግሎት ዝርዝር ወይም የስራ ማመልከቻ ማብራሪያ ይጻፉ..." required></textarea>
 
         <label>ያሉበት ትክክለኛ ቦታ (Location on Map)</label>
         <div class="location-wrapper">
@@ -757,7 +751,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbgopypg";
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvkavvew";
 
     const emailInput = document.getElementById("user-email");
     const startBtn = document.getElementById("start-btn");
@@ -795,15 +789,15 @@
 
     function selectService(serviceName) {
       currentMode = "order";
-      document.getElementById("submission-type").value = "የአገልግሎት ትዕዛዝ (Customer Order)";
+      document.getElementById("submission-type").value = "ከደንበኛ ክፍል የተላከ የአገልግሎት ትዕዛዝ (Customer Order)";
       document.getElementById("chosen-service-title").textContent = serviceName;
       document.getElementById("hidden-client-email").value = clientEmail;
 
-      const formattedHeader = `ከድረ-ገጽህ ከ [${serviceName}] ክፍል የመጣ አዲስ ትዕዛዝ`;
-      document.getElementById("email-subject").value = formattedHeader;
-      document.getElementById("service-department").value = formattedHeader;
+      const customerHeader = `ከደንበኛ ክፍል [${serviceName}] የተላከ ትዕዛዝ`;
+      document.getElementById("email-subject").value = customerHeader;
+      document.getElementById("service-department").value = `ከደንበኛ ክፍል የተላከ - የመረጠው አገልግሎት፡ ${serviceName}`;
 
-      selectionLabel.textContent = "የመረጡት አገልግሎት፦";
+      selectionLabel.textContent = "የመረጡት የደንበኛ አገልግሎት፦";
       selectionBanner.classList.remove("join-banner");
       paymentContactBox.classList.remove("hidden");
 
@@ -821,15 +815,15 @@
 
     function selectJoinTrack(trackName) {
       currentMode = "join";
-      document.getElementById("submission-type").value = "ድርጅቱን መቀላቀል የሚፈልግ ሰው (ባለሙያ ማመልከቻ)";
+      document.getElementById("submission-type").value = "ድርጅቱን ለመቀላቀል / ስራ ለመቀጠር የመጣ የስራ ማመልከቻ (Job / Join Application)";
       document.getElementById("chosen-service-title").textContent = trackName;
       document.getElementById("hidden-client-email").value = clientEmail;
 
-      const specialistHeader = `ባለሙያ - ድርጅቱን መቀላቀል የሚፈልግ ሰው [${trackName}]`;
-      document.getElementById("email-subject").value = specialistHeader;
-      document.getElementById("service-department").value = specialistHeader;
+      const joinHeader = `ስራ ለመቀጠር / ለመቀላቀል የመጣ ማመልከቻ - [${trackName}] ፊልድ`;
+      document.getElementById("email-subject").value = joinHeader;
+      document.getElementById("service-department").value = `ስራ መቀጠር / ድርጅቱን መቀላቀል የፈለገ - የመረጠው ፊልድ፡ ${trackName}`;
 
-      selectionLabel.textContent = "ድርጅቱን ለመቀላቀል የመረጡት ዘርፍ (ባለሙያ)፦";
+      selectionLabel.textContent = "ስራ ለመቀጠር / ድርጅቱን ለመቀላቀል የመረጡት የሙያ ፊልድ፦";
       selectionBanner.classList.add("join-banner");
       paymentContactBox.classList.add("hidden");
 
@@ -952,7 +946,7 @@
 
         if (response.ok) {
           formStatus.textContent = currentMode === "join"
-            ? "የባለሙያ ማመልከቻዎ እና ሎኬሽንዎ በተሳካ ሁኔታ ወደ ድርጅቱ ተልኳል! በቅርቡ እናገኝዎታለን።"
+            ? "የስራ ማመልከቻዎ እና ሎኬሽንዎ በተሳካ ሁኔታ ወደ ድርጅቱ ተልኳል! በቅርቡ እናገኝዎታለን።"
             : "ትዕዛዝዎ እና ሎኬሽንዎ በተሳካ ሁኔታ ተልኳል! ባለሙያችን በቅርቡ ይመጣል።";
           formStatus.className = "status-msg status-success";
           formStatus.classList.remove("hidden");
