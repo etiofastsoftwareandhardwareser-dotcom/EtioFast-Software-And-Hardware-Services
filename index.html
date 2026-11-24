@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ኢትዮ ፋስት ሶፍትዌር እና ሃርድዌር ሰርቪስ</title>
+  <title>ኢትዮ ፋስት ሶፍትዌር ሰርቪስ</title>
   
   <!-- Leaflet Map CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -16,8 +16,6 @@
       --primary: #3b82f6;
       --primary-glow: rgba(59, 130, 246, 0.4);
       --accent: #06b6d4;
-      --join-accent: #8b5cf6;
-      --join-glow: rgba(139, 92, 246, 0.35);
       --text: #f8fafc;
       --muted: #94a3b8;
       --border: #1e293b;
@@ -198,6 +196,9 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: clamp(16px, 2vw, 24px);
+      max-width: 820px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     .service-card {
@@ -220,20 +221,11 @@
       box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
     }
 
-    .join-card:hover {
-      border-color: var(--join-accent);
-      box-shadow: 0 8px 25px var(--join-glow);
-    }
-
     .service-tag {
       font-size: 0.78rem;
       color: var(--accent);
       margin-bottom: 8px;
       font-weight: 600;
-    }
-
-    .join-tag {
-      color: #c4b5fd;
     }
 
     .service-card h3 {
@@ -256,58 +248,12 @@
       font-weight: 600;
     }
 
-    .join-link {
-      color: #c4b5fd;
-    }
-
-    .join-section-footer {
-      margin-top: clamp(24px, 3vw, 36px);
-      padding: clamp(20px, 3vw, 30px);
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(139, 92, 246, 0.35);
-      border-radius: 18px;
-      text-align: center;
-    }
-
-    .join-section-footer h3 {
-      font-size: clamp(1.1rem, 1.7vw, 1.35rem);
-      color: #e9d5ff;
-      margin-bottom: 8px;
-    }
-
-    .join-section-footer p {
-      font-size: clamp(0.88rem, 1.2vw, 1rem);
-      color: var(--muted);
-      margin-bottom: 18px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn-join {
-      background: linear-gradient(135deg, #7c3aed, #2563eb);
-      color: #ffffff;
-      box-shadow: 0 4px 18px var(--join-glow);
-      max-width: 440px;
-      margin: 0 auto;
-      display: block;
-    }
-
-    .btn-join:hover {
-      filter: brightness(1.08);
-    }
-
     .selected-service-banner {
       background: rgba(6, 182, 212, 0.15);
       border-left: 4px solid var(--accent);
       padding: 12px 15px;
       border-radius: 8px;
       margin-bottom: 20px;
-    }
-
-    .join-banner {
-      background: rgba(139, 92, 246, 0.16);
-      border-left-color: var(--join-accent);
     }
 
     .selected-service-banner span {
@@ -319,10 +265,6 @@
     .selected-service-banner strong {
       font-size: clamp(1rem, 1.3vw, 1.15rem);
       color: #22d3ee;
-    }
-
-    .join-banner strong {
-      color: #d8b4fe;
     }
 
     .location-wrapper {
@@ -490,7 +432,7 @@
       }
 
       .services-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       #step-3.step-box {
@@ -517,14 +459,14 @@
 
   <div class="container">
     <header>
-      <h1>ኢትዮ ፋስት ሶፍትዌር እና ሃርድዌር ሰርቪስ</h1>
-      <p>ሙያዊ የሶፍትዌር፣ የድረ-ገጽ፣ የሳይበር ደህንነት፣ የሚዲያ፣ የዲሽ እና የሃርድዌር / ማሽነሪ ጥገና መፍትሄዎች</p>
+      <h1>ኢትዮ ፋስት ሶፍትዌር ሰርቪስ</h1>
+      <p>ሙያዊ የድረ-ገጽ ዲዛይን እና ልማት እንዲሁም የአፕሊኬሽን መስራት አገልግሎቶች</p>
     </header>
 
     <!-- ደረጃ 1፡ ኢሜል ማስገቢያ -->
     <section id="step-1" class="step-box">
-      <h2>እንኳን ወደ ኢትዮ ፋስት ሶፍትዌር እና ሃርድዌር ሰርቪስ በደህና መጡ</h2>
-      <p>አገልግሎቶቻችንን ለማየት፣ ለማዘዝ ወይም ድርጅታችንን ለመቀላቀል መጀመሪያ የሚጠቀሙበትን ኢሜል ያስገቡ።</p>
+      <h2>እንኳን ወደ ኢትዮ ፋስት ሶፍትዌር ሰርቪስ በደህና መጡ</h2>
+      <p>አገልግሎቶቻችንን ለማየት እና ለማዘዝ መጀመሪያ የሚጠቀሙበትን ኢሜል ያስገቡ።</p>
       
       <label for="user-email">የእርስዎ ኢሜል (Email Address)</label>
       <input type="email" id="user-email" placeholder="example@gmail.com" required />
@@ -532,14 +474,14 @@
       <button id="start-btn" class="btn btn-start" disabled>Start (ጀምር)</button>
     </section>
 
-    <!-- ደረጃ 2፡ 7ቱ አገልግሎቶች + ድርጅቱን መቀላቀል -->
+    <!-- ደረጃ 2፡ 2ቱ አገልግሎቶች -->
     <section id="step-2" class="hidden">
       <div class="user-badge">
         <span>ገብተዋል በ፦ <strong id="display-email"></strong></span>
         <span style="font-size: 0.85rem; color: #34d399;">● ዝግጁ</span>
       </div>
 
-      <h2 class="section-heading">የሚፈልጉትን አገልግሎት ይምረጡ፦</h2>
+      <h2 class="section-heading" style="text-align: center;">የሚፈልጉትን አገልግሎት ይምረጡ፦</h2>
 
       <div class="services-grid">
         <div class="service-card" onclick="selectService('Web Design & Development (ድረ-ገጽ ዲዛይን እና ልማት)')">
@@ -551,154 +493,18 @@
           <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
         </div>
 
-        <div class="service-card" onclick="selectService('Web Testing (የድረ-ገጽ ፍተሻ እና ደካማ ጎን መለየት)')">
-          <div>
-            <div class="service-tag">አገልግሎት 02</div>
-            <h3>Web Testing</h3>
-            <p>ነባር ድረ-ገጾች ያሉባቸውን የአሰራር እና የደህንነት ደካማ ጎኖች መፈተሽ እና ማረጋገጥ።</p>
-          </div>
-          <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
-        </div>
-
-        <div class="service-card" onclick="selectService('Cybersecurity (የድርጅቶች የሳይበር ደህንነት አገልግሎት)')">
-          <div>
-            <div class="service-tag">አገልግሎት 03</div>
-            <h3>Cybersecurity</h3>
-            <p>ለድርጅቶች እና ለተቋማት የሳይበር ደህንነት ጥበቃ፣ የመረጃ ደህንነት ፍተሻ እና የማማከር አገልግሎት።</p>
-          </div>
-          <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
-        </div>
-
         <div class="service-card" onclick="selectService('Application Development (አፕሊኬሽን መስራት እና ማልማት)')">
           <div>
-            <div class="service-tag">አገልግሎት 04</div>
+            <div class="service-tag">አገልግሎት 02</div>
             <h3>Application Development</h3>
             <p>ለስልክ እና ለተለያዩ አገልግሎቶች የሚውሉ ዘመናዊ አፕሊኬሽኖችን መስራት እና ማልማት።</p>
           </div>
           <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
         </div>
-
-        <div class="service-card" onclick="selectService('Video Editing & Social Media Management (ቪዲዮ ኤዲቲንግ እና ሶሻል ሚዲያ)')">
-          <div>
-            <div class="service-tag">አገልግሎት 05</div>
-            <h3>Video Editing & Social Media</h3>
-            <p>ፕሮፌሽናል ቪዲዮ ኤዲቲንግ፣ በኮንትራት የሶሻል ሚዲያ ገጾችን ማስተዳደር እና ዲጂታል ማርኬቲንግ።</p>
-          </div>
-          <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
-        </div>
-
-        <div class="service-card" onclick="selectService('Machinery, Generator & Electronics Repair (የማሽነሪ፣ ጀነሬተር እና ኤሌክትሮኒክስ ጥገና)')">
-          <div>
-            <div class="service-tag">አገልግሎት 06</div>
-            <h3>Machinery & Electronics Repair</h3>
-            <p>የጀነሬተር፣ የአነስተኛ ማሽኖች፣ የቤት እቃዎች፣ የቲቪ እና የስልክ ክትትል፣ ፍተሻ እና ጥገና።</p>
-          </div>
-          <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
-        </div>
-
-        <div class="service-card" onclick="selectService('Dish Installation, Server & Repair (የዲሽ ጥገና፣ ገጠማ እና ሰርቨር አገልግሎት)')">
-          <div>
-            <div class="service-tag">አገልግሎት 07</div>
-            <h3>Dish Installation, Server & Repair</h3>
-            <p>የዲሽ ገጠማ፣ የዲሽ ጥገና እና የዲሽ ሰርቨር አገልግሎት በተፈቀዱ ከተሞች ውስጥ።</p>
-          </div>
-          <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
-        </div>
-      </div>
-
-      <!-- ድርጅቱን መቀላቀል የሚፈልግ ሰው መግቢያ -->
-      <div class="join-section-footer">
-        <h3>ወደ ኢትዮ ፋስት ሶፍትዌር እና ሃርድዌር ሰርቪስ መቀላቀል ይፈልጋሉ?</h3>
-        <p>በሶፍትዌር፣ በድረ-ገጽ፣ በቪዲዮ ኤዲቲንግ፣ በዲሽ ጥገና ወይም በሃርድዌር / አነስተኛ ማሽኖች ጥገና ሙያና እውቀት ካለዎት ቡድናችንን ይቀላቀሉ።</p>
-        <button type="button" class="btn btn-join" onclick="openJoinTracks()">
-          🤝 ድርጅቱን ለመቀላቀል (Join Our Team)
-        </button>
       </div>
     </section>
 
-    <!-- ደረጃ 2B፡ ድርጅቱን ለመቀላቀል የሚመጡ 7ቱ የሙያ ሳጥኖች -->
-    <section id="step-join-tracks" class="hidden">
-      <div class="user-badge">
-        <span>ገብተዋል በ፦ <strong id="join-display-email"></strong></span>
-        <span style="font-size: 0.85rem; color: #c4b5fd;">● የባለሙያ / ስራ ማመልከቻ</span>
-      </div>
-
-      <h2 class="section-heading">ለመቀላቀል ወይም ለመቀጠር የሚፈልጉትን የሙያ ዘርፍ ይምረጡ፦</h2>
-      <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 20px;">
-        በእያንዳንዱ ከተማ ለእያንዳንዱ የሙያ ዘርፍ <strong>3 ሰው ብቻ</strong> ይቀበላል። ቦታ ካለ ይምረጡና ማመልከቻዎን ያስገቡ።
-      </p>
-
-      <div class="services-grid">
-        <div class="service-card join-card" onclick="selectJoinTrack('Web Design & Development (ድረ-ገጽ ዲዛይን እና ልማት)')">
-          <div>
-            <div class="service-tag join-tag">የሙያ ዘርፍ 01</div>
-            <h3>Web Design & Development</h3>
-            <p>ድረ-ገጽ መንደፍ፣ ኮድ መጻፍ እና ዘመናዊ ድረ-ገጾችን ማበልጸግ የሚችሉ ባለሙያዎች።</p>
-          </div>
-          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
-        </div>
-
-        <div class="service-card join-card" onclick="selectJoinTrack('Web Testing (የድረ-ገጽ ፍተሻ እና ደካማ ጎን መለየት)')">
-          <div>
-            <div class="service-tag join-tag">የሙያ ዘርፍ 02</div>
-            <h3>Web Testing</h3>
-            <p>የድረ-ገጾችን አሰራር፣ ስህተቶችን እና የደህንነት ችግሮችን መፈተሽ የሚችሉ።</p>
-          </div>
-          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
-        </div>
-
-        <div class="service-card join-card" onclick="selectJoinTrack('Cybersecurity (የሳይበር ደህንነት)')">
-          <div>
-            <div class="service-tag join-tag">የሙያ ዘርፍ 03</div>
-            <h3>Cybersecurity</h3>
-            <p>የሲስተም እና የመረጃ ደህንነት ጥበቃ፣ ፍተሻ እና የሳይበር ደህንነት እውቀት ያላቸው።</p>
-          </div>
-          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
-        </div>
-
-        <div class="service-card join-card" onclick="selectJoinTrack('Application Development (አፕሊኬሽን መስራት እና ማልማት)')">
-          <div>
-            <div class="service-tag join-tag">የሙያ ዘርፍ 04</div>
-            <h3>Application Development</h3>
-            <p>የሞባይል ወይም የሶፍትዌር አፕሊኬሽኖችን መስራት እና ማልማት የሚችሉ።</p>
-          </div>
-          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
-        </div>
-
-        <div class="service-card join-card" onclick="selectJoinTrack('Video Editing & Social Media Management (ቪዲዮ ኤዲቲንግ እና ሶሻል ሚዲያ)')">
-          <div>
-            <div class="service-tag join-tag">የሙያ ዘርፍ 05</div>
-            <h3>Video Editing & Social Media</h3>
-            <p>ቪዲዮ ኤዲቲንግ፣ ዲዛይን እና የሶሻል ሚዲያ ገጾችን በብቃት ማስተዳደር የሚችሉ።</p>
-          </div>
-          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
-        </div>
-
-        <div class="service-card join-card" onclick="selectJoinTrack('Hardware & Small Machinery Repair (የሃርድዌር እና የአነስተኛ ማሽኖች ጥገና)')">
-          <div>
-            <div class="service-tag join-tag">የሙያ ዘርፍ 06</div>
-            <h3>Hardware & Small Machinery Repair</h3>
-            <p>ሃርድዌር፣ አነስተኛ ማሽኖች፣ የቤት እቃዎች፣ ጀነሬተር ወይም ኤሌክትሮኒክስ ማስተካከል የሚችሉ።</p>
-          </div>
-          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
-        </div>
-
-        <div class="service-card join-card" onclick="selectJoinTrack('Dish Installation, Server & Repair (የዲሽ ጥገና፣ ገጠማ እና ሰርቨር)')">
-          <div>
-            <div class="service-tag join-tag">የሙያ ዘርፍ 07</div>
-            <h3>Dish Installation, Server & Repair</h3>
-            <p>የዲሽ ገጠማ፣ የዲሽ ጥገና እና የዲሽ ሰርቨር ስራ መስጠት የሚችሉ ባለሙያዎች።</p>
-          </div>
-          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
-        </div>
-      </div>
-
-      <button type="button" class="btn btn-back" style="max-width: 320px; margin: 22px auto 0; display: block;" onclick="goBackToServices()">
-        ← ወደ አገልግሎቶች ተመለስ
-      </button>
-    </section>
-
-    <!-- ደረጃ 3፡ የደንበኛ ወይም የባለሙያ መረጃ እና የካርታ ሎኬሽን መምረጫ -->
+    <!-- ደረጃ 3፡ የደንበኛ መረጃ እና የካርታ ሎኬሽን መምረጫ -->
     <section id="step-3" class="step-box hidden">
       <div id="selection-banner" class="selected-service-banner">
         <span id="selection-label">የመረጡት አገልግሎት፦</span>
@@ -769,7 +575,6 @@
 
   <script>
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvkavvew";
-    const MAX_JOINERS_PER_CITY_FIELD = 3;
     const ALLOWED_RADIUS_KM = 18; // ከከተማው ማዕከል ያለው የተፈቀደ ርቀት (በኪሎሜትር)
 
     // የተፈቀዱ 8 ከተሞች (Lat, Lng)
@@ -788,17 +593,11 @@
     const startBtn = document.getElementById("start-btn");
     const step1 = document.getElementById("step-1");
     const step2 = document.getElementById("step-2");
-    const stepJoinTracks = document.getElementById("step-join-tracks");
     const step3 = document.getElementById("step-3");
     const displayEmail = document.getElementById("display-email");
-    const joinDisplayEmail = document.getElementById("join-display-email");
-
-    const selectionBanner = document.getElementById("selection-banner");
-    const selectionLabel = document.getElementById("selection-label");
     const afterSendContactBox = document.getElementById("after-send-contact-box");
 
     let clientEmail = "";
-    let currentMode = "order"; // "order" ወይም "join"
     let selectedSelectionName = "";
     let selectedLat = null;
     let selectedLng = null;
@@ -841,20 +640,6 @@
       return null;
     }
 
-    // በአንድ ከተማ እና በአንድ ፊልድ የገቡ ባለሙያዎች ብዛት (max 3)
-    function getJoinCount(city, field) {
-      const store = JSON.parse(localStorage.getItem("ethiofast_join_counts") || "{}");
-      const key = `${city}__${field}`;
-      return store[key] || 0;
-    }
-
-    function incrementJoinCount(city, field) {
-      const store = JSON.parse(localStorage.getItem("ethiofast_join_counts") || "{}");
-      const key = `${city}__${field}`;
-      store[key] = (store[key] || 0) + 1;
-      localStorage.setItem("ethiofast_join_counts", JSON.stringify(store));
-    }
-
     function resetStep3FormState() {
       selectedLat = null;
       selectedLng = null;
@@ -881,13 +666,11 @@
     startBtn.addEventListener("click", () => {
       clientEmail = emailInput.value.trim();
       displayEmail.textContent = clientEmail;
-      joinDisplayEmail.textContent = clientEmail;
       step1.classList.add("hidden");
       step2.classList.remove("hidden");
     });
 
     function selectService(serviceName) {
-      currentMode = "order";
       selectedSelectionName = serviceName;
       resetStep3FormState();
 
@@ -898,60 +681,18 @@
       document.getElementById("service-department").value =
         `ከደንበኛ ክፍል የተላከ - የመረጠው አገልግሎት፡ ${serviceName}`;
 
-      selectionLabel.textContent = "የመረጡት የደንበኛ አገልግሎት፦";
-      selectionBanner.classList.remove("join-banner");
-
       step2.classList.add("hidden");
-      stepJoinTracks.classList.add("hidden");
       step3.classList.remove("hidden");
-    }
-
-    function openJoinTracks() {
-      joinDisplayEmail.textContent = clientEmail;
-      step2.classList.add("hidden");
-      stepJoinTracks.classList.remove("hidden");
-    }
-
-    function selectJoinTrack(trackName) {
-      currentMode = "join";
-      selectedSelectionName = trackName;
-      resetStep3FormState();
-
-      document.getElementById("submission-type").value =
-        "ድርጅቱን ለመቀላቀል / ስራ ለመቀጠር የመጣ የስራ ማመልከቻ (Join / Job Application)";
-      document.getElementById("chosen-service-title").textContent = trackName;
-      document.getElementById("hidden-client-email").value = clientEmail;
-      document.getElementById("email-subject").value =
-        `ስራ ለመቀጠር / ለመቀላቀል የመጣ ማመልከቻ - [${trackName}] ፊልድ`;
-      document.getElementById("service-department").value =
-        `ስራ መቀጠር / ድርጅቱን መቀላቀል የፈለገ - የመረጠው ፊልድ፡ ${trackName}`;
-
-      selectionLabel.textContent = "ስራ ለመቀጠር / ድርጅቱን ለመቀላቀል የመረጡት የሙያ ፊልድ፦";
-      selectionBanner.classList.add("join-banner");
-
-      stepJoinTracks.classList.add("hidden");
-      step3.classList.remove("hidden");
-    }
-
-    function goBackToServices() {
-      stepJoinTracks.classList.add("hidden");
-      step3.classList.add("hidden");
-      step2.classList.remove("hidden");
     }
 
     function handleStep3Back() {
       step3.classList.add("hidden");
-      if (currentMode === "join") {
-        stepJoinTracks.classList.remove("hidden");
-      } else {
-        step2.classList.remove("hidden");
-      }
+      step2.classList.remove("hidden");
     }
 
     function openMapModal() {
       document.getElementById("map-modal").classList.remove("hidden");
 
-      // ነባሪ ማዕከል፦ ዱራሜ / ሃላባ ቁሊቶ አካባቢ
       const defaultLat = selectedLat || 7.2415;
       const defaultLng = selectedLng || 37.8933;
 
@@ -1023,29 +764,9 @@
         locBtn.classList.add("blocked");
         locBtn.innerHTML = "❌ ከተፈቀዱት ከተሞች ውጭ ነው (ለመቀየር ይንኩ)";
         locText.innerHTML =
-          `<span style="color:#f87171;">ይቅርታ! የተመረጠው ቦታ ከተፈቀዱት ከተሞች (ሻሸመኔ፣ ቡታጅራ፣ ዱራሜ፣ ሃላባ ቁሊቶ፣ ወራቤ፣ አረካ፣ ሽንሺቾ፣ ሃዋሳ) ውጭ ስለሆነ አገልግሎት ማግኘት ወይም መቀላቀል አይቻልም።</span>`;
+          `<span style="color:#f87171;">ይቅርታ! የተመረጠው ቦታ ከተፈቀዱት ከተሞች (ሻሸመኔ፣ ቡታጅራ፣ ዱራሜ፣ ሃላባ ቁሊቶ፣ ወራቤ፣ አረካ፣ ሽንሺቾ፣ ሃዋሳ) ውጭ ስለሆነ አገልግሎት ማግኘት አይቻልም።</span>`;
         document.getElementById("map-modal").classList.add("hidden");
         return;
-      }
-
-      // ጆይን ለማድረግ ከሆነ በዚያ ከተማ እና ፊልድ 3 ሰው ሞልቶ እንደሆነ ማረጋገጥ
-      if (currentMode === "join") {
-        const currentCount = getJoinCount(matchedCity, selectedSelectionName);
-        if (currentCount >= MAX_JOINERS_PER_CITY_FIELD) {
-          isLocationAllowed = false;
-          detectedCityName = matchedCity;
-          document.getElementById("google-maps-link").value = "";
-          document.getElementById("exact-coordinates").value = "";
-          document.getElementById("detected-city").value = matchedCity;
-
-          locBtn.classList.remove("saved");
-          locBtn.classList.add("blocked");
-          locBtn.innerHTML = `🚫 ${matchedCity} ላይ ይህ ፊልድ 3 ሰው ሞልቷል`;
-          locText.innerHTML =
-            `<span style="color:#f87171;">ይቅርታ! በ<strong>${matchedCity}</strong> ከተማ በ<strong>${selectedSelectionName}</strong> ዘርፍ ቀድሞ 3 ሰው ተቀላቅሏል፤ ተጨማሪ መቀበል አይቻልም።</span>`;
-          document.getElementById("map-modal").classList.add("hidden");
-          return;
-        }
       }
 
       isLocationAllowed = true;
@@ -1076,21 +797,10 @@
 
       if (!isLocationAllowed || !document.getElementById("google-maps-link").value || !detectedCityName) {
         formStatus.textContent =
-          "እባክዎ መጀመሪያ በካርታ ላይ ቦታ ይምረጡ። የተመረጠው ቦታ ከ8ቱ የተፈቀዱ ከተሞች ውስጥ መሆን እና ለጆይን በዚያ ፊልድ 3 ሰው ያልሞላ መሆን አለበት።";
+          "እባክዎ መጀመሪያ በካርታ ላይ ቦታ ይምረጡ። የተመረጠው ቦታ ከ8ቱ የተፈቀዱ ከተሞች ውስጥ መሆን አለበት።";
         formStatus.className = "status-msg status-error";
         formStatus.classList.remove("hidden");
         return;
-      }
-
-      if (currentMode === "join") {
-        const count = getJoinCount(detectedCityName, selectedSelectionName);
-        if (count >= MAX_JOINERS_PER_CITY_FIELD) {
-          formStatus.textContent =
-            `ይቅርታ! በ${detectedCityName} ከተማ በዚህ የሙያ ዘርፍ 3 ሰው ሞልቷል፤ ጆይን ማድረግ አይቻልም።`;
-          formStatus.className = "status-msg status-error";
-          formStatus.classList.remove("hidden");
-          return;
-        }
       }
 
       sendBtn.disabled = true;
@@ -1106,23 +816,15 @@
         });
 
         if (response.ok) {
-          if (currentMode === "join") {
-            incrementJoinCount(detectedCityName, selectedSelectionName);
-          }
-
-          formStatus.textContent = currentMode === "join"
-            ? `የስራ ማመልከቻዎ (${detectedCityName}) በተሳካ ሁኔታ ወደ ድርጅቱ ተልኳል!`
-            : `ትዕዛዝዎ እና ሎኬሽንዎ (${detectedCityName}) በተሳካ ሁኔታ ተልኳል!`;
+          formStatus.textContent = `ትዕዛዝዎ እና ሎኬሽንዎ (${detectedCityName}) በተሳካ ሁኔታ ተልኳል!`;
           formStatus.className = "status-msg status-success";
           formStatus.classList.remove("hidden");
 
-          // መልዕክቱ በተሳካ ሁኔታ ከተላከ በኋላ ብቻ ስልክ ቁጥሩ ይታያል
           afterSendContactBox.classList.remove("hidden");
 
           orderForm.reset();
           document.getElementById("hidden-client-email").value = clientEmail;
           resetStep3FormState();
-          // resetStep3FormState የ status እና contact boxን ስለሚደብቅ እንደገና እናሳያቸዋለን
           formStatus.classList.remove("hidden");
           afterSendContactBox.classList.remove("hidden");
         } else {
