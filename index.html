@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ኢትዮ ፋስት ሶፍትዌር እና ሃርድዌር ሰርቪስ</title>
   
-  <!-- Leaflet Map CSS (ለካርታው አገልግሎት) -->
+  <!-- Leaflet Map CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
@@ -22,6 +22,7 @@
       --muted: #94a3b8;
       --border: #1e293b;
       --success: #10b981;
+      --danger: #ef4444;
     }
 
     * {
@@ -137,7 +138,7 @@
     }
 
     textarea {
-      min-height: 90px;
+      min-height: 85px;
       resize: vertical;
     }
 
@@ -348,11 +349,18 @@
       color: #34d399;
     }
 
+    .btn-location.blocked {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1.5px solid #ef4444;
+      color: #f87171;
+    }
+
     .location-preview {
       font-size: 0.85rem;
       color: #94a3b8;
       margin-top: 8px;
       text-align: center;
+      line-height: 1.45;
     }
 
     .btn-send {
@@ -368,37 +376,29 @@
       margin-top: 10px;
     }
 
-    .payment-contact-box {
-      margin-top: 22px;
+    /* የስልክ መረጃ ሳጥን (መልዕክት ከተላከ በኋላ ብቻ የሚታይ) */
+    .after-send-contact-box {
+      margin-top: 18px;
       padding: 16px;
       border-radius: 12px;
-      background: #090e1a;
-      border: 1px solid #1e293b;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.45);
       text-align: center;
     }
 
-    .payment-note {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      margin-bottom: 10px;
-      line-height: 1.55;
-    }
-
     .contact-info {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       color: #e2e8f0;
-      padding-top: 10px;
-      border-top: 1px dashed #1e293b;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .phone-link {
       display: inline-block;
-      margin-top: 4px;
+      margin-top: 6px;
       color: #34d399;
       font-weight: 700;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 1.08rem;
     }
 
     .phone-link:hover {
@@ -467,8 +467,9 @@
       margin-top: 15px;
       padding: 12px;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       text-align: center;
+      line-height: 1.5;
     }
 
     .status-success {
@@ -517,7 +518,7 @@
   <div class="container">
     <header>
       <h1>ኢትዮ ፋስት ሶፍትዌር እና ሃርድዌር ሰርቪስ</h1>
-      <p>ሙያዊ የሶፍትዌር፣ የድረ-ገጽ፣ የሳይበር ደህንነት፣ የሚዲያ እና የሃርድዌር / ማሽነሪ ጥገና መፍትሄዎች</p>
+      <p>ሙያዊ የሶፍትዌር፣ የድረ-ገጽ፣ የሳይበር ደህንነት፣ የሚዲያ፣ የዲሽ እና የሃርድዌር / ማሽነሪ ጥገና መፍትሄዎች</p>
     </header>
 
     <!-- ደረጃ 1፡ ኢሜል ማስገቢያ -->
@@ -531,7 +532,7 @@
       <button id="start-btn" class="btn btn-start" disabled>Start (ጀምር)</button>
     </section>
 
-    <!-- ደረጃ 2፡ 6ቱ አገልግሎቶች + ድርጅቱን መቀላቀል -->
+    <!-- ደረጃ 2፡ 7ቱ አገልግሎቶች + ድርጅቱን መቀላቀል -->
     <section id="step-2" class="hidden">
       <div class="user-badge">
         <span>ገብተዋል በ፦ <strong id="display-email"></strong></span>
@@ -594,28 +595,37 @@
           </div>
           <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
         </div>
+
+        <div class="service-card" onclick="selectService('Dish Installation, Server & Repair (የዲሽ ጥገና፣ ገጠማ እና ሰርቨር አገልግሎት)')">
+          <div>
+            <div class="service-tag">አገልግሎት 07</div>
+            <h3>Dish Installation, Server & Repair</h3>
+            <p>የዲሽ ገጠማ፣ የዲሽ ጥገና እና የዲሽ ሰርቨር አገልግሎት በተፈቀዱ ከተሞች ውስጥ።</p>
+          </div>
+          <div class="select-link">ይህን አገልግሎት ይዘዙ →</div>
+        </div>
       </div>
 
       <!-- ድርጅቱን መቀላቀል የሚፈልግ ሰው መግቢያ -->
       <div class="join-section-footer">
         <h3>ወደ ኢትዮ ፋስት ሶፍትዌር እና ሃርድዌር ሰርቪስ መቀላቀል ይፈልጋሉ?</h3>
-        <p>በሶፍትዌር፣ በድረ-ገጽ፣ በቪዲዮ ኤዲቲንግ ወይም በሃርድዌር / አነስተኛ ማሽኖች ጥገና ሙያና እውቀት ካለዎት ቡድናችንን ይቀላቀሉ።</p>
+        <p>በሶፍትዌር፣ በድረ-ገጽ፣ በቪዲዮ ኤዲቲንግ፣ በዲሽ ጥገና ወይም በሃርድዌር / አነስተኛ ማሽኖች ጥገና ሙያና እውቀት ካለዎት ቡድናችንን ይቀላቀሉ።</p>
         <button type="button" class="btn btn-join" onclick="openJoinTracks()">
           🤝 ድርጅቱን ለመቀላቀል (Join Our Team)
         </button>
       </div>
     </section>
 
-    <!-- ደረጃ 2B፡ ድርጅቱን ለመቀላቀል የሚመጡ 6ቱ የሙያ ሳጥኖች -->
+    <!-- ደረጃ 2B፡ ድርጅቱን ለመቀላቀል የሚመጡ 7ቱ የሙያ ሳጥኖች -->
     <section id="step-join-tracks" class="hidden">
       <div class="user-badge">
         <span>ገብተዋል በ፦ <strong id="join-display-email"></strong></span>
-        <span style="font-size: 0.85rem; color: #c4b5fd;">● የባለሙያ / ተቀጣሪ ማመልከቻ</span>
+        <span style="font-size: 0.85rem; color: #c4b5fd;">● የባለሙያ / ስራ ማመልከቻ</span>
       </div>
 
       <h2 class="section-heading">ለመቀላቀል ወይም ለመቀጠር የሚፈልጉትን የሙያ ዘርፍ ይምረጡ፦</h2>
       <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 20px;">
-        ከሚከተሉት ስድስት ዘርፎች እውቀት ወይም ልምድ ያለዎትን አንዱን ይምረጡና የስራ ማመልከቻዎን ይላኩ።
+        በእያንዳንዱ ከተማ ለእያንዳንዱ የሙያ ዘርፍ <strong>3 ሰው ብቻ</strong> ይቀበላል። ቦታ ካለ ይምረጡና ማመልከቻዎን ያስገቡ።
       </p>
 
       <div class="services-grid">
@@ -672,6 +682,15 @@
           </div>
           <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
         </div>
+
+        <div class="service-card join-card" onclick="selectJoinTrack('Dish Installation, Server & Repair (የዲሽ ጥገና፣ ገጠማ እና ሰርቨር)')">
+          <div>
+            <div class="service-tag join-tag">የሙያ ዘርፍ 07</div>
+            <h3>Dish Installation, Server & Repair</h3>
+            <p>የዲሽ ገጠማ፣ የዲሽ ጥገና እና የዲሽ ሰርቨር ስራ መስጠት የሚችሉ ባለሙያዎች።</p>
+          </div>
+          <div class="select-link join-link">በዚህ ዘርፍ ያመልክቱ →</div>
+        </div>
       </div>
 
       <button type="button" class="btn btn-back" style="max-width: 320px; margin: 22px auto 0; display: block;" onclick="goBackToServices()">
@@ -687,11 +706,12 @@
       </div>
 
       <form id="order-form" action="https://formspree.io/f/mvkavvew" method="POST">
-        <input type="hidden" name="የመልዕክቱ_አይነት" id="submission-type" value="ከደንበኛ ክፍል የተላከ የአገልግሎት ትዕዛዝ (Customer Order)" />
+        <input type="hidden" name="የመልዕክቱ_አይነት" id="submission-type" />
         <input type="hidden" name="_subject" id="email-subject" />
-        <input type="hidden" name="የተላከበት_ክፍል_እና_አላማ" id="service-department" />
+        <input type="hidden" name="የተላከበት_ክፍል_እና_መረጃ" id="service-department" />
+        <input type="hidden" name="የተለየ_ከተማ" id="detected-city" />
         <input type="hidden" name="email" id="hidden-client-email" />
-        <input type="hidden" name="የደንበኛው_Google_Maps_ሊንክ" id="google-maps-link" />
+        <input type="hidden" name="የተጠቃሚው_Google_Maps_ሊንክ" id="google-maps-link" />
         <input type="hidden" name="ትክክለኛ_ኮኦርዲኔት_Coordinates" id="exact-coordinates" />
 
         <label for="full-name">ሙሉ ስም (Full Name)</label>
@@ -701,7 +721,7 @@
         <input type="tel" id="phone-number" name="ስልክ_ቁጥር" placeholder="09..." required />
 
         <label for="user-message">መልዕክት / ማብራሪያ (Message)</label>
-        <textarea id="user-message" name="message" placeholder="የሚፈልጉትን አገልግሎት ዝርዝር ወይም የስራ ማመልከቻ ማብራሪያ ይጻፉ..." required></textarea>
+        <textarea id="user-message" name="message" placeholder="ዝርዝር መልዕክትዎን ያስገቡ..." required></textarea>
 
         <label>ያሉበት ትክክለኛ ቦታ (Location on Map)</label>
         <div class="location-wrapper">
@@ -709,7 +729,7 @@
             📍 ሎኬሽን በካርታ ላይ ምረጥ (Select Location)
           </button>
           <div id="location-status-text" class="location-preview">
-            ካርታውን ከፍተው ያሉበትን ቦታ ይምረጡ
+            ካርታውን ከፍተው ያሉበትን ቦታ ይምረጡ (በተፈቀዱ ከተሞች ውስጥ መሆን አለበት)
           </div>
         </div>
 
@@ -719,11 +739,8 @@
 
       <div id="form-status" class="status-msg hidden"></div>
 
-      <!-- የክፍያ ማሳሰቢያ እና የስልክ መረጃ -->
-      <div id="payment-contact-box" class="payment-contact-box">
-        <div class="payment-note">
-          አገልግሎቱን ከተጠቀሙ በኋላ እባኮን በድርጅታችን አካውንት ክፍያ ይፈጽሙ።
-        </div>
+      <!-- መልዕክቱ በተሳካ ሁኔታ ከተላከ በኋላ ብቻ የሚታይ የስልክ ቁጥር -->
+      <div id="after-send-contact-box" class="after-send-contact-box hidden">
         <div class="contact-info">
           ለበለጠ መረጃ በዚህ ስልክ ቁጥር ይደውሉ፦<br />
           <a href="tel:0978749166" class="phone-link">0978749166</a>
@@ -752,6 +769,20 @@
 
   <script>
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvkavvew";
+    const MAX_JOINERS_PER_CITY_FIELD = 3;
+    const ALLOWED_RADIUS_KM = 18; // ከከተማው ማዕከል ያለው የተፈቀደ ርቀት (በኪሎሜትር)
+
+    // የተፈቀዱ 8 ከተሞች (Lat, Lng)
+    const ALLOWED_CITIES = [
+      { name: "ሻሸመኔ", lat: 7.2008, lng: 38.5956 },
+      { name: "ቡታጅራ", lat: 8.1167, lng: 38.3667 },
+      { name: "ዱራሜ", lat: 7.2415, lng: 37.8933 },
+      { name: "ሃላባ ቁሊቶ", lat: 7.3064, lng: 38.1131 },
+      { name: "ወራቤ", lat: 7.8500, lng: 38.2000 },
+      { name: "አረካ", lat: 7.0667, lng: 37.7000 },
+      { name: "ሽንሺቾ", lat: 7.1667, lng: 37.7833 },
+      { name: "ሃዋሳ", lat: 7.0621, lng: 38.4763 }
+    ];
 
     const emailInput = document.getElementById("user-email");
     const startBtn = document.getElementById("start-btn");
@@ -764,14 +795,82 @@
 
     const selectionBanner = document.getElementById("selection-banner");
     const selectionLabel = document.getElementById("selection-label");
-    const paymentContactBox = document.getElementById("payment-contact-box");
+    const afterSendContactBox = document.getElementById("after-send-contact-box");
 
     let clientEmail = "";
-    let currentMode = "order";
+    let currentMode = "order"; // "order" ወይም "join"
+    let selectedSelectionName = "";
     let selectedLat = null;
     let selectedLng = null;
+    let detectedCityName = null;
+    let isLocationAllowed = false;
     let map = null;
     let marker = null;
+
+    // ርቀት ማስላት (Haversine formula - በኪሎሜትር)
+    function calculateDistanceKm(lat1, lon1, lat2, lon2) {
+      const R = 6371;
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) *
+          Math.cos((lat2 * Math.PI) / 180) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // ኮኦርዲኔቱ ከ8ቱ ከተሞች ውስጥ መሆኑን ማረጋገጥ
+    function findMatchingAllowedCity(lat, lng) {
+      let nearestCity = null;
+      let minDist = Infinity;
+
+      for (const city of ALLOWED_CITIES) {
+        const dist = calculateDistanceKm(lat, lng, city.lat, city.lng);
+        if (dist < minDist) {
+          minDist = dist;
+          nearestCity = city;
+        }
+      }
+
+      if (nearestCity && minDist <= ALLOWED_RADIUS_KM) {
+        return nearestCity.name;
+      }
+      return null;
+    }
+
+    // በአንድ ከተማ እና በአንድ ፊልድ የገቡ ባለሙያዎች ብዛት (max 3)
+    function getJoinCount(city, field) {
+      const store = JSON.parse(localStorage.getItem("ethiofast_join_counts") || "{}");
+      const key = `${city}__${field}`;
+      return store[key] || 0;
+    }
+
+    function incrementJoinCount(city, field) {
+      const store = JSON.parse(localStorage.getItem("ethiofast_join_counts") || "{}");
+      const key = `${city}__${field}`;
+      store[key] = (store[key] || 0) + 1;
+      localStorage.setItem("ethiofast_join_counts", JSON.stringify(store));
+    }
+
+    function resetStep3FormState() {
+      selectedLat = null;
+      selectedLng = null;
+      detectedCityName = null;
+      isLocationAllowed = false;
+      document.getElementById("google-maps-link").value = "";
+      document.getElementById("exact-coordinates").value = "";
+      document.getElementById("detected-city").value = "";
+      const locBtn = document.getElementById("open-map-btn");
+      locBtn.classList.remove("saved", "blocked");
+      locBtn.innerHTML = "📍 ሎኬሽን በካርታ ላይ ምረጥ (Select Location)";
+      document.getElementById("location-status-text").textContent =
+        "ካርታውን ከፍተው ያሉበትን ቦታ ይምረጡ (በተፈቀዱ ከተሞች ውስጥ መሆን አለበት)";
+      document.getElementById("form-status").classList.add("hidden");
+      afterSendContactBox.classList.add("hidden");
+    }
 
     emailInput.addEventListener("input", () => {
       const val = emailInput.value.trim();
@@ -789,22 +888,22 @@
 
     function selectService(serviceName) {
       currentMode = "order";
+      selectedSelectionName = serviceName;
+      resetStep3FormState();
+
       document.getElementById("submission-type").value = "ከደንበኛ ክፍል የተላከ የአገልግሎት ትዕዛዝ (Customer Order)";
       document.getElementById("chosen-service-title").textContent = serviceName;
       document.getElementById("hidden-client-email").value = clientEmail;
-
-      const customerHeader = `ከደንበኛ ክፍል [${serviceName}] የተላከ ትዕዛዝ`;
-      document.getElementById("email-subject").value = customerHeader;
-      document.getElementById("service-department").value = `ከደንበኛ ክፍል የተላከ - የመረጠው አገልግሎት፡ ${serviceName}`;
+      document.getElementById("email-subject").value = `ከደንበኛ ክፍል [${serviceName}] የተላከ ትዕዛዝ`;
+      document.getElementById("service-department").value =
+        `ከደንበኛ ክፍል የተላከ - የመረጠው አገልግሎት፡ ${serviceName}`;
 
       selectionLabel.textContent = "የመረጡት የደንበኛ አገልግሎት፦";
       selectionBanner.classList.remove("join-banner");
-      paymentContactBox.classList.remove("hidden");
 
       step2.classList.add("hidden");
       stepJoinTracks.classList.add("hidden");
       step3.classList.remove("hidden");
-      document.getElementById("form-status").classList.add("hidden");
     }
 
     function openJoinTracks() {
@@ -815,21 +914,23 @@
 
     function selectJoinTrack(trackName) {
       currentMode = "join";
-      document.getElementById("submission-type").value = "ድርጅቱን ለመቀላቀል / ስራ ለመቀጠር የመጣ የስራ ማመልከቻ (Job / Join Application)";
+      selectedSelectionName = trackName;
+      resetStep3FormState();
+
+      document.getElementById("submission-type").value =
+        "ድርጅቱን ለመቀላቀል / ስራ ለመቀጠር የመጣ የስራ ማመልከቻ (Join / Job Application)";
       document.getElementById("chosen-service-title").textContent = trackName;
       document.getElementById("hidden-client-email").value = clientEmail;
-
-      const joinHeader = `ስራ ለመቀጠር / ለመቀላቀል የመጣ ማመልከቻ - [${trackName}] ፊልድ`;
-      document.getElementById("email-subject").value = joinHeader;
-      document.getElementById("service-department").value = `ስራ መቀጠር / ድርጅቱን መቀላቀል የፈለገ - የመረጠው ፊልድ፡ ${trackName}`;
+      document.getElementById("email-subject").value =
+        `ስራ ለመቀጠር / ለመቀላቀል የመጣ ማመልከቻ - [${trackName}] ፊልድ`;
+      document.getElementById("service-department").value =
+        `ስራ መቀጠር / ድርጅቱን መቀላቀል የፈለገ - የመረጠው ፊልድ፡ ${trackName}`;
 
       selectionLabel.textContent = "ስራ ለመቀጠር / ድርጅቱን ለመቀላቀል የመረጡት የሙያ ፊልድ፦";
       selectionBanner.classList.add("join-banner");
-      paymentContactBox.classList.add("hidden");
 
       stepJoinTracks.classList.add("hidden");
       step3.classList.remove("hidden");
-      document.getElementById("form-status").classList.add("hidden");
     }
 
     function goBackToServices() {
@@ -850,11 +951,12 @@
     function openMapModal() {
       document.getElementById("map-modal").classList.remove("hidden");
 
+      // ነባሪ ማዕከል፦ ዱራሜ / ሃላባ ቁሊቶ አካባቢ
       const defaultLat = selectedLat || 7.2415;
       const defaultLng = selectedLng || 37.8933;
 
       if (!map) {
-        map = L.map("map-canvas").setView([defaultLat, defaultLng], 14);
+        map = L.map("map-canvas").setView([defaultLat, defaultLng], 12);
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           attribution: "&copy; OpenStreetMap",
         }).addTo(map);
@@ -889,7 +991,7 @@
           (position) => {
             selectedLat = position.coords.latitude;
             selectedLng = position.coords.longitude;
-            map.setView([selectedLat, selectedLng], 16);
+            map.setView([selectedLat, selectedLng], 14);
             marker.setLatLng([selectedLat, selectedLng]);
           },
           () => {},
@@ -899,21 +1001,67 @@
     }
 
     function confirmAndSendLocation() {
-      if (selectedLat && selectedLng) {
-        const latFixed = selectedLat.toFixed(6);
-        const lngFixed = selectedLng.toFixed(6);
-        const mapsUrl = `https://www.google.com/maps?q=${latFixed},${lngFixed}`;
-
-        document.getElementById("google-maps-link").value = mapsUrl;
-        document.getElementById("exact-coordinates").value = `${latFixed}, ${lngFixed}`;
-
-        const locBtn = document.getElementById("open-map-btn");
-        locBtn.classList.add("saved");
-        locBtn.innerHTML = "✅ ሎኬሽን ተቀምጧል (ቦታውን ለመቀየር ይንኩ)";
-
-        document.getElementById("location-status-text").textContent =
-          `የተመረጠው ቦታ: ${latFixed}, ${lngFixed}`;
+      if (selectedLat == null || selectedLng == null) {
+        document.getElementById("map-modal").classList.add("hidden");
+        return;
       }
+
+      const latFixed = selectedLat.toFixed(6);
+      const lngFixed = selectedLng.toFixed(6);
+      const matchedCity = findMatchingAllowedCity(selectedLat, selectedLng);
+      const locBtn = document.getElementById("open-map-btn");
+      const locText = document.getElementById("location-status-text");
+
+      if (!matchedCity) {
+        isLocationAllowed = false;
+        detectedCityName = null;
+        document.getElementById("google-maps-link").value = "";
+        document.getElementById("exact-coordinates").value = "";
+        document.getElementById("detected-city").value = "";
+
+        locBtn.classList.remove("saved");
+        locBtn.classList.add("blocked");
+        locBtn.innerHTML = "❌ ከተፈቀዱት ከተሞች ውጭ ነው (ለመቀየር ይንኩ)";
+        locText.innerHTML =
+          `<span style="color:#f87171;">ይቅርታ! የተመረጠው ቦታ ከተፈቀዱት ከተሞች (ሻሸመኔ፣ ቡታጅራ፣ ዱራሜ፣ ሃላባ ቁሊቶ፣ ወራቤ፣ አረካ፣ ሽንሺቾ፣ ሃዋሳ) ውጭ ስለሆነ አገልግሎት ማግኘት ወይም መቀላቀል አይቻልም።</span>`;
+        document.getElementById("map-modal").classList.add("hidden");
+        return;
+      }
+
+      // ጆይን ለማድረግ ከሆነ በዚያ ከተማ እና ፊልድ 3 ሰው ሞልቶ እንደሆነ ማረጋገጥ
+      if (currentMode === "join") {
+        const currentCount = getJoinCount(matchedCity, selectedSelectionName);
+        if (currentCount >= MAX_JOINERS_PER_CITY_FIELD) {
+          isLocationAllowed = false;
+          detectedCityName = matchedCity;
+          document.getElementById("google-maps-link").value = "";
+          document.getElementById("exact-coordinates").value = "";
+          document.getElementById("detected-city").value = matchedCity;
+
+          locBtn.classList.remove("saved");
+          locBtn.classList.add("blocked");
+          locBtn.innerHTML = `🚫 ${matchedCity} ላይ ይህ ፊልድ 3 ሰው ሞልቷል`;
+          locText.innerHTML =
+            `<span style="color:#f87171;">ይቅርታ! በ<strong>${matchedCity}</strong> ከተማ በ<strong>${selectedSelectionName}</strong> ዘርፍ ቀድሞ 3 ሰው ተቀላቅሏል፤ ተጨማሪ መቀበል አይቻልም።</span>`;
+          document.getElementById("map-modal").classList.add("hidden");
+          return;
+        }
+      }
+
+      isLocationAllowed = true;
+      detectedCityName = matchedCity;
+      const mapsUrl = `https://www.google.com/maps?q=${latFixed},${lngFixed}`;
+
+      document.getElementById("google-maps-link").value = mapsUrl;
+      document.getElementById("exact-coordinates").value = `${latFixed}, ${lngFixed}`;
+      document.getElementById("detected-city").value = matchedCity;
+
+      locBtn.classList.remove("blocked");
+      locBtn.classList.add("saved");
+      locBtn.innerHTML = `✅ ሎኬሽን ተቀምጧል (${matchedCity}) - ለመቀየር ይንኩ`;
+
+      locText.innerHTML =
+        `<span style="color:#34d399;">ከተማ፡ <strong>${matchedCity}</strong> | ኮኦርዲኔት፡ ${latFixed}, ${lngFixed}</span>`;
 
       document.getElementById("map-modal").classList.add("hidden");
     }
@@ -924,12 +1072,25 @@
 
     orderForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      afterSendContactBox.classList.add("hidden");
 
-      if (!document.getElementById("google-maps-link").value) {
-        formStatus.textContent = "እባክዎ መጀመሪያ 'ሎኬሽን በካርታ ላይ ምረጥ' የሚለውን በመንካት ያሉበትን ቦታ ያስቀምጡ።";
+      if (!isLocationAllowed || !document.getElementById("google-maps-link").value || !detectedCityName) {
+        formStatus.textContent =
+          "እባክዎ መጀመሪያ በካርታ ላይ ቦታ ይምረጡ። የተመረጠው ቦታ ከ8ቱ የተፈቀዱ ከተሞች ውስጥ መሆን እና ለጆይን በዚያ ፊልድ 3 ሰው ያልሞላ መሆን አለበት።";
         formStatus.className = "status-msg status-error";
         formStatus.classList.remove("hidden");
         return;
+      }
+
+      if (currentMode === "join") {
+        const count = getJoinCount(detectedCityName, selectedSelectionName);
+        if (count >= MAX_JOINERS_PER_CITY_FIELD) {
+          formStatus.textContent =
+            `ይቅርታ! በ${detectedCityName} ከተማ በዚህ የሙያ ዘርፍ 3 ሰው ሞልቷል፤ ጆይን ማድረግ አይቻልም።`;
+          formStatus.className = "status-msg status-error";
+          formStatus.classList.remove("hidden");
+          return;
+        }
       }
 
       sendBtn.disabled = true;
@@ -945,17 +1106,25 @@
         });
 
         if (response.ok) {
+          if (currentMode === "join") {
+            incrementJoinCount(detectedCityName, selectedSelectionName);
+          }
+
           formStatus.textContent = currentMode === "join"
-            ? "የስራ ማመልከቻዎ እና ሎኬሽንዎ በተሳካ ሁኔታ ወደ ድርጅቱ ተልኳል! በቅርቡ እናገኝዎታለን።"
-            : "ትዕዛዝዎ እና ሎኬሽንዎ በተሳካ ሁኔታ ተልኳል! ባለሙያችን በቅርቡ ይመጣል።";
+            ? `የስራ ማመልከቻዎ (${detectedCityName}) በተሳካ ሁኔታ ወደ ድርጅቱ ተልኳል!`
+            : `ትዕዛዝዎ እና ሎኬሽንዎ (${detectedCityName}) በተሳካ ሁኔታ ተልኳል!`;
           formStatus.className = "status-msg status-success";
           formStatus.classList.remove("hidden");
+
+          // መልዕክቱ በተሳካ ሁኔታ ከተላከ በኋላ ብቻ ስልክ ቁጥሩ ይታያል
+          afterSendContactBox.classList.remove("hidden");
+
           orderForm.reset();
           document.getElementById("hidden-client-email").value = clientEmail;
-          document.getElementById("open-map-btn").classList.remove("saved");
-          document.getElementById("open-map-btn").innerHTML = "📍 ሎኬሽን በካርታ ላይ ምረጥ (Select Location)";
-          document.getElementById("location-status-text").textContent = "ካርታውን ከፍተው ያሉበትን ቦታ ይምረጡ";
-          document.getElementById("google-maps-link").value = "";
+          resetStep3FormState();
+          // resetStep3FormState የ status እና contact boxን ስለሚደብቅ እንደገና እናሳያቸዋለን
+          formStatus.classList.remove("hidden");
+          afterSendContactBox.classList.remove("hidden");
         } else {
           throw new Error("መላክ አልተቻለም");
         }
